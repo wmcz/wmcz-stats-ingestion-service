@@ -29,23 +29,23 @@
         "segmentGranularity": "WEEK"
       },
       "timestampSpec": {
-        "column": "ce_event_timestamp",
+        "column": "event_timestamp",
         "format": "auto"
       },
       "dimensionsSpec": {
         "dimensions": [
-          "ce_campaign",
-          "ce_course_end",
-          "ce_course_slug",
-          "ce_course_start",
-          "ce_creates_new_page",
-          "ce_event_user_groups",
-          "ce_page_namespace",
-          "ce_page_namespace_is_content",
-          "ce_user_edit_count_bucket",
-          "ce_user_name",
-          "ce_user_role",
-          "ce_user_tenure_bucket",
+          "campaign",
+          "course_end",
+          "course_slug",
+          "course_start",
+          "creates_new_page",
+          "event_user_groups",
+          "page_namespace",
+          "page_namespais_content",
+          "user_edit_count_bucket",
+          "user_name",
+          "user_role",
+          "user_tenure_bucket",
           "wiki_db"
         ]
       },
@@ -55,9 +55,9 @@
           "type": "count"
         },
         {
-          "name": "sum_ce_revision_text_bytes_diff",
+          "name": "sum_revision_text_bytes_diff",
           "type": "longSum",
-          "fieldName": "ce_revision_text_bytes_diff"
+          "fieldName": "revision_text_bytes_diff"
         }
       ]
     }
