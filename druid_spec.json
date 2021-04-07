@@ -1,0 +1,65 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "http",
+        "uris": [
+          "https://people.wikimedia.org/~urbanecm/wmcz/dashboard-stats-data/wmcz_outreach_dashboard_edits.txt"
+        ]
+      },
+      "inputFormat": {
+        "type": "tsv",
+        "findColumnsFromHeader": true
+      }
+    },
+    "tuningConfig": {
+      "type": "index_parallel",
+      "partitionsSpec": {
+        "type": "dynamic"
+      }
+    },
+    "dataSchema": {
+      "dataSource": "wmcz_outreach_dashboard_edits",
+      "granularitySpec": {
+        "type": "uniform",
+        "queryGranularity": "HOUR",
+        "rollup": true,
+        "segmentGranularity": "WEEK"
+      },
+      "timestampSpec": {
+        "column": "ce_event_timestamp",
+        "format": "auto"
+      },
+      "dimensionsSpec": {
+        "dimensions": [
+          "ce_campaign",
+          "ce_course_end",
+          "ce_course_slug",
+          "ce_course_start",
+          "ce_creates_new_page",
+          "ce_event_user_groups",
+          "ce_page_namespace",
+          "ce_page_namespace_is_content",
+          "ce_user_edit_count_bucket",
+          "ce_user_name",
+          "ce_user_role",
+          "ce_user_tenure_bucket",
+          "wiki_db"
+        ]
+      },
+      "metricsSpec": [
+        {
+          "name": "count",
+          "type": "count"
+        },
+        {
+          "name": "sum_ce_revision_text_bytes_diff",
+          "type": "longSum",
+          "fieldName": "ce_revision_text_bytes_diff"
+        }
+      ]
+    }
+  }
+}
