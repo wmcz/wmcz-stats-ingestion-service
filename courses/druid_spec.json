@@ -29,7 +29,7 @@
         "segmentGranularity": "MONTH"
       },
       "timestampSpec": {
-        "column": "course_end",
+        "column": "course_start",
         "format": "auto"
       },
       "dimensionsSpec": {
