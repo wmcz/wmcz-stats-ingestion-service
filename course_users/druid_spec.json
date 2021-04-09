@@ -1,0 +1,52 @@
+{
+  "type": "index_parallel",
+  "spec": {
+    "ioConfig": {
+      "type": "index_parallel",
+      "inputSource": {
+        "type": "http",
+        "uris": [
+          "https://people.wikimedia.org/~urbanecm/wmcz/dashboard-stats-data/wmcz_outreach_dashboard_courses_users.txt"
+        ]
+      },
+      "inputFormat": {
+        "type": "tsv",
+        "findColumnsFromHeader": true
+      }
+    },
+    "tuningConfig": {
+      "type": "index_parallel",
+      "partitionsSpec": {
+        "type": "dynamic"
+      }
+    },
+    "dataSchema": {
+      "dataSource": "wmcz_outreach_dashboard_courses_users",
+      "granularitySpec": {
+        "type": "uniform",
+        "queryGranularity": "DAY",
+        "rollup": true
+      },
+      "timestampSpec": {
+        "column": "course_start",
+        "format": "auto"
+      },
+      "dimensionsSpec": {
+        "dimensions": [
+          "campaign",
+          "course_slug",
+          "user_editcount_bucket",
+          "user_name",
+          "user_role",
+          "user_tenure_bucket"
+        ]
+      },
+      "metricsSpec": [
+        {
+          "name": "count",
+          "type": "count"
+        }
+      ]
+    }
+  }
+}
