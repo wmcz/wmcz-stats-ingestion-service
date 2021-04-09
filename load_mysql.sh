@@ -21,7 +21,7 @@ my_mysql() {
 mkdir $TMPDIR
 echo $TMPDIR
 
-tables="wmcz_outreach_dashboard_courses_csv wmcz_outreach_dashboard_courses_users_csv wmcz_outreach_dashboard_edits"
+tables="wmcz_outreach_dashboard_courses_csv wmcz_outreach_dashboard_courses_users wmcz_outreach_dashboard_edits"
 
 for table in $tables; do
 	echo "DROP TABLE IF EXISTS $table" | my_mysql
