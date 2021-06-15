@@ -6,7 +6,7 @@
       "inputSource": {
         "type": "http",
         "uris": [
-          "https://people.wikimedia.org/~urbanecm/wmcz/dashboard-stats-data/wmcz_outreach_dashboard_courses_users.txt"
+          "https://wmcz.toolforge.org/datasets/periodic/dashboard-data/monthly/wmcz_outreach_dashboard_courses_users.txt"
         ]
       },
       "inputFormat": {
